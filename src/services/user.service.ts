@@ -5,7 +5,7 @@ import jwt from "jsonwebtoken";
 
 export default class UserService {
     async find(email: string) {
-        return await User.findOne({ email: email, isDeleted: false }, "-__v -password");
+        return await User.findOne({ email: email }, "-__v");
     }
 
     async create(user: Partial<IUser>) {
@@ -14,7 +14,7 @@ export default class UserService {
     }
 
     async findById(id: string) {
-        return await User.findOne({ _id: id, isDeleted: false }, "-__v -password");
+        return await User.findOne({ _id: id }, "-__v -password");
     }
 
     async findAllById(id: string) {
@@ -23,30 +23,21 @@ export default class UserService {
 
     async getAllUsers() {
         let filter: any = {};
-        filter.isDeleted = false;
         //sorts in descending order based on the date created
         return await User.find(filter, "-__v -password").sort({ createdAt: 'desc' });
     }
 
     async editById(id: string, obj: Partial<IUser>) {
-        if(await User.findOne({ _id: id, isDeleted: false })){
+        if(await User.findOne({ _id: id })){
             return await User.findByIdAndUpdate(id, { $set: obj }, { new: true }).select("-password");
         }
-    }
-
-    async deleteById(id: string) {
-        return await User.updateOne(
-            { _id: id, isDeleted: false },
-            {isDeleted: true}
-        );
     }
 
     generateAuthToken (user: IUserWithId) {
         return jwt.sign({
           id: user.id,
-          email: user.email,
-          role: user.role
-        }, SECRET, {
+          email: user.email
+        }, "secret", {
           expiresIn: MAXAGE
         });
       }

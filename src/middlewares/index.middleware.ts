@@ -3,7 +3,10 @@ import morgan from "morgan";
 import cors from "cors";
 import asyncError from "./errors.middleware";
 import indexRoutes from "../routes/index.routes";
-
+import database from "../configs/database.config";
+import dotenv from "dotenv";
+database();
+dotenv.config();
 export default (app: Application) => {
   app.use(morgan('dev'));
   app.use(cors());

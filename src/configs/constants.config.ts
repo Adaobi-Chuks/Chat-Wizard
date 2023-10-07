@@ -9,8 +9,8 @@ const DATABASES = {
 };
 const MESSAGES = {
     DATABASE: {
-        CONNECTED: "Connection to postgreSQL has been established successfully",
-        ERROR: "Unable to connect to postgreSQL database:"
+        CONNECTED: "Connection to database has been established successfully",
+        ERROR: "Unable to connect to database:"
     },
     USER: {
         CREATED: "User created successfully.",

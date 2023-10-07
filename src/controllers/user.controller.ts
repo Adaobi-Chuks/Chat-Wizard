@@ -62,7 +62,7 @@ export default class UserController {
                     Message: INVALID_EMAIL
                 });
         }
-        
+        console.log(password, _user)
         const validPassword = await bcrypt.compare(password, _user.password);
         if (!validPassword) {
             return res.status(400)
