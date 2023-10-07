@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "build": "tsc",
+    "build": "npm install && tsc",
     "start": "nodemon -r dotenv/config ./build/server.js"
   },
   "keywords": [],
