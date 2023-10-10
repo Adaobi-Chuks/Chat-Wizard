@@ -3,6 +3,7 @@ import bcrypt from "bcrypt";
 import { MAXAGE, MESSAGES } from "../configs/constants.config";
 import UserService from "../services/user.service";
 import IUser from "../interfaces/user.interface";
+import { transporter } from "../configs/nodeMailer.config";
 const {
     create,
     find,
@@ -40,6 +41,39 @@ export default class UserController {
         //creates a user if the email doesn't exist
         const createdUser = await create(req.body);
         const token = generateAuthToken(createdUser as any);
+
+        let mailOptions = {
+            from: "Glory Technologies <chuksaginamada@gmail.com>",
+            to: `${createdUser?.email}`,
+            subject: "Welcome to Chat Wizerd",
+            sender: "Glory Technologies", 
+            html: `<!doctype html>
+            <html>
+              <head>
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+              </head>
+              <body style="font-family: sans-serif;">
+                <div style="display: block; margin: auto; max-width: 600px;" class="main">
+                  <h1 style="font-size: 18px; font-weight: bold; margin-top: 20px">Dear user,</h1>
+                  <p>We are excited to welcome you on Chat Wizard!</p>
+                  <p>Thank you for choosing us to assist you in streamlining customer support and enhancing productivity. We're here to make your experience smooth and enjoyable.</p>
+                  <p>We can't wait to see how you'll benefit from our chat wizard.</p>
+                  <p>Best regards,</p>
+                  <p>Glory Technologies.</p>
+                  <h1 style="font-size: 18px; font-weight: bold; margin-top: 20px">I also wants to say THANK YOU!</h1>
+                </div>
+              </body>
+            </html>`
+          };
+          
+          //   Send Mail Method
+          transporter.sendMail(mailOptions, function (err, data) {
+              if (err) {
+                console.log("Error " + err);
+              } else {
+                console.log("Email sent successfully");
+              }
+          });
         res.cookie("token", token, {
             httpOnly: true, 
             maxAge: MAXAGE * 1000 
