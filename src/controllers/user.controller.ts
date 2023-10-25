@@ -82,7 +82,7 @@ export default class UserController {
               'https://api.chatengine.io/users/',
               {
                 username: email,
-                secret: password,
+                secret: "secret",
               },
               {
                 headers: {
