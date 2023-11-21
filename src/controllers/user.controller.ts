@@ -8,6 +8,7 @@ import axios from "axios";
 const {
     create,
     find,
+    findById,
     generateAuthToken
 } = new UserService();
 const {
@@ -138,6 +139,23 @@ export default class UserController {
             Success: true,
             Message: LOGGEDIN,
             User: _user 
+        });
+    }
+
+    async getUserById(req: Request, res: Response) {
+        //checks if user exists
+        const user = await findById(req.params.userId);
+        if (!user) {
+            return res.status(404).send({
+                success: false,
+                message: INVALID_ID
+            });
+        }
+
+        return res.status(200).send({
+          success: true,
+          message: FETCHED,
+          returnedUser: user
         });
     }
 
