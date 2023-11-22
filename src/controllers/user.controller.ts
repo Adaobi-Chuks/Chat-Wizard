@@ -78,7 +78,6 @@ export default class UserController {
           
         let chatEngineData = null;
         try {
-            // Make a POST request to ChatEngine API
             const chatEngineResponse = await axios.put(
               'https://api.chatengine.io/users/',
               {
@@ -91,7 +90,6 @@ export default class UserController {
                 },
               }
             );
-          
             console.log('ChatEngine user created: ', chatEngineResponse.data);
           
             // Store ChatEngine response data

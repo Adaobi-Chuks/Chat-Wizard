@@ -1,6 +1,8 @@
 import { Application, json, urlencoded } from "express";
 import morgan from "morgan";
 import cors from "cors";
+import helmet from "helmet";
+import cookieParser from "cookie-parser";
 import asyncError from "./errors.middleware";
 import indexRoutes from "../routes/index.routes";
 import database from "../configs/database.config";
@@ -11,7 +13,9 @@ export default (app: Application) => {
   app.use(morgan('dev'));
   app.use(cors());
   app.use(json());
+  app.use(helmet());
+  app.use(cookieParser());
   app.use(urlencoded());
-  indexRoutes(app);
   app.use(asyncError);
+  indexRoutes(app);
 };
