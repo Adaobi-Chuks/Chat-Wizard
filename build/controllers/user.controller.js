@@ -17,6 +17,8 @@ const constants_config_1 = require("../configs/constants.config");
 const user_service_1 = __importDefault(require("../services/user.service"));
 const nodeMailer_config_1 = require("../configs/nodeMailer.config");
 const axios_1 = __importDefault(require("axios"));
+const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
+const user_model_1 = __importDefault(require("../models/user.model"));
 const { create, find, findById, generateAuthToken } = new user_service_1.default();
 const { DUPLICATE_EMAIL, DUPLICATE_PHONENUMBER, CREATED, FETCHEDALL, INVALID_ID, FETCHED, UPDATED, DELETED, INVALID_EMAIL, INVALID_PASSWORD, LOGGEDIN, LOGGEDOUT } = constants_config_1.MESSAGES.USER;
 class UserController {
@@ -130,7 +132,20 @@ class UserController {
     getUserById(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             //checks if user exists
-            const user = yield findById(req.params.userId);
+            let decodedToken;
+            try {
+                decodedToken = jsonwebtoken_1.default.verify(req.cookies.token, "secret");
+            }
+            catch (err) {
+                res.status(500).send(err.message);
+                return;
+            }
+            if (!decodedToken.hasOwnProperty("email")) {
+                res.status(401).send("Invalid authentication credentials.");
+                return;
+            }
+            const { email } = decodedToken;
+            let user = yield user_model_1.default.find({ email });
             if (!user) {
                 return res.status(404).send({
                     success: false,

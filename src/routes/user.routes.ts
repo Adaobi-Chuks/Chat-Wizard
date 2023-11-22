@@ -9,7 +9,7 @@ const {
 
 //create a user or signup
 router.post("/", createUser);
-router.get("/:id", getUserById);
+router.get("/", getUserById);
 //login a user
 router.post("/login", login);
 

@@ -5,6 +5,8 @@ import UserService from "../services/user.service";
 import IUser from "../interfaces/user.interface";
 import { transporter } from "../configs/nodeMailer.config";
 import axios from "axios";
+import jwt from "jsonwebtoken";
+import userModel from "../models/user.model";
 const {
     create,
     find,
@@ -142,14 +144,27 @@ export default class UserController {
 
     async getUserById(req: Request, res: Response) {
         //checks if user exists
-        const user = await findById(req.params.userId);
+        let decodedToken: any;
+        try {
+            decodedToken = jwt.verify(req.cookies.token, "secret");
+        } catch (err: any) {
+            res.status(500).send(err.message);
+            return;
+        }
+        if (
+            !decodedToken.hasOwnProperty("email")
+        ) {
+            res.status(401).send("Invalid authentication credentials.");
+            return;
+        }
+        const { email } = decodedToken;
+        let user = await userModel.find({email});
         if (!user) {
             return res.status(404).send({
                 success: false,
                 message: INVALID_ID
             });
         }
-
         return res.status(200).send({
           success: true,
           message: FETCHED,
