@@ -157,7 +157,7 @@ export default class UserController {
             return;
         }
         const { email } = decodedToken;
-        let user = await userModel.find({email});
+        let user: any = await userModel.find({email});
         if (!user) {
             return res.status(404).send({
                 success: false,
@@ -167,7 +167,7 @@ export default class UserController {
         return res.status(200).send({
           success: true,
           message: FETCHED,
-          returnedUser: user
+          email: user.email
         });
     }
 

@@ -154,7 +154,7 @@ class UserController {
             return res.status(200).send({
                 success: true,
                 message: FETCHED,
-                returnedUser: user
+                email: user.email
             });
         });
     }
