@@ -151,10 +151,12 @@ class UserController {
                     message: INVALID_ID
                 });
             }
+            const _email = user[0].email;
+            console.log(_email);
             return res.status(200).send({
                 success: true,
-                message: FETCHED,
-                email: user.email
+                message: "Email fetched successfully",
+                email: _email
             });
         });
     }
