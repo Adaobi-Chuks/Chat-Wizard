@@ -75,7 +75,7 @@ class UserController {
                     secret: "secret",
                 }, {
                     headers: {
-                        'PRIVATE-KEY': '9abea2d4-0de8-459a-aeec-5f61052d9942',
+                        'PRIVATE-KEY': '8b8c5f42-a1e4-41f7-800b-a1ecd79e4924',
                     },
                 });
                 console.log('ChatEngine user created: ', chatEngineResponse.data);
@@ -131,7 +131,6 @@ class UserController {
     }
     getUserById(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            //checks if user exists
             let decodedToken;
             try {
                 decodedToken = jsonwebtoken_1.default.verify(req.cookies.token, "secret");

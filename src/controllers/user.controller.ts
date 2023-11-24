@@ -88,7 +88,7 @@ export default class UserController {
               },
               {
                 headers: {
-                  'PRIVATE-KEY': '9abea2d4-0de8-459a-aeec-5f61052d9942',
+                  'PRIVATE-KEY': '8b8c5f42-a1e4-41f7-800b-a1ecd79e4924',
                 },
               }
             );
@@ -143,7 +143,6 @@ export default class UserController {
     }
 
     async getUserById(req: Request, res: Response) {
-        //checks if user exists
         let decodedToken: any;
         try {
             decodedToken = jwt.verify(req.cookies.token, "secret");
