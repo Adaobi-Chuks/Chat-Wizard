@@ -4,13 +4,15 @@ const router = Router();
 const {
     createUser,
     login,
-    getUserById
+    getAuthenticatedUser
 } = new UserController();
 
 //create a user or signup
 router.post("/", createUser);
-router.get("/", getUserById);
+router.get("/", getAuthenticatedUser);
 //login a user
 router.post("/login", login);
+//get chatid
+router.post("/chat", login);
 
 export default router;

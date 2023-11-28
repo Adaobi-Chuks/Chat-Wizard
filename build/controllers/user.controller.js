@@ -20,7 +20,7 @@ const axios_1 = __importDefault(require("axios"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const user_model_1 = __importDefault(require("../models/user.model"));
 const { create, find, findById, generateAuthToken } = new user_service_1.default();
-const { DUPLICATE_EMAIL, DUPLICATE_PHONENUMBER, CREATED, FETCHEDALL, INVALID_ID, FETCHED, UPDATED, DELETED, INVALID_EMAIL, INVALID_PASSWORD, LOGGEDIN, LOGGEDOUT } = constants_config_1.MESSAGES.USER;
+const { DUPLICATE_EMAIL, CREATED, INVALID_ID, INVALID_EMAIL, INVALID_PASSWORD, LOGGEDIN, } = constants_config_1.MESSAGES.USER;
 class UserController {
     createUser(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -129,7 +129,7 @@ class UserController {
             });
         });
     }
-    getUserById(req, res) {
+    getAuthenticatedUser(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             let decodedToken;
             try {

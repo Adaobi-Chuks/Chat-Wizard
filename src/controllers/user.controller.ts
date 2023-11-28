@@ -15,17 +15,11 @@ const {
 } = new UserService();
 const {
     DUPLICATE_EMAIL,
-    DUPLICATE_PHONENUMBER,
     CREATED,
-    FETCHEDALL,
     INVALID_ID,
-    FETCHED,
-    UPDATED,
-    DELETED,
     INVALID_EMAIL,
     INVALID_PASSWORD,
     LOGGEDIN,
-    LOGGEDOUT
 } = MESSAGES.USER;
 
 export default class UserController {
@@ -142,7 +136,7 @@ export default class UserController {
         });
     }
 
-    async getUserById(req: Request, res: Response) {
+    async getAuthenticatedUser(req: Request, res: Response) {
         let decodedToken: any;
         try {
             decodedToken = jwt.verify(req.cookies.token, "secret");
@@ -172,5 +166,4 @@ export default class UserController {
           email: _email
         });
     }
-
 }
