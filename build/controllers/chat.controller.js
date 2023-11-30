@@ -38,7 +38,7 @@ class chatController {
             return res.status(200).send({
                 success: true,
                 message: "Chat Id fetched successfully",
-                chatId: chatEngineData.id,
+                chatId: String(chatEngineData.id),
                 accessKey: chatEngineData.access_key
             });
         });
