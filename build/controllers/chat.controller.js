@@ -33,6 +33,7 @@ class chatController {
                         "Access-Control-Allow-Origin": "*",
                         "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
                         "X-Cloud-Trace-Context": "356f99312aac3a16d462aed40bced7fa",
+                        'referrer-policy': 'no-referrer'
                     },
                 });
                 console.log('ChatEngine chat created or retrived: ', chatEngineResponse.data);
