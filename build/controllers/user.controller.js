@@ -75,7 +75,7 @@ class UserController {
                     secret: "secret",
                 }, {
                     headers: {
-                        'PRIVATE-KEY': '8b8c5f42-a1e4-41f7-800b-a1ecd79e4924',
+                        'PRIVATE-KEY': '4321c0af-9ff1-4316-9048-bcadac3bd9c8',
                     },
                 });
                 console.log('ChatEngine user created: ', chatEngineResponse.data);

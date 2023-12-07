@@ -24,9 +24,15 @@ class chatController {
                     is_direct_chat: false
                 }, {
                     headers: {
-                        'Project-ID': '9fc5ff33-97af-4fac-ae05-264e99afb765',
+                        'Project-ID': '30a0ab26-3bce-4bce-a5f6-523ba1ba2256',
                         'User-Name': req.body.userEmail,
-                        'User-Secret': 'secret'
+                        'User-Secret': 'secret',
+                        "Content-Type": "application/json",
+                        Vary: "Accept, Origin",
+                        Allow: "GET, POST, PUT, HEAD, OPTIONS",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+                        "X-Cloud-Trace-Context": "356f99312aac3a16d462aed40bced7fa",
                     },
                 });
                 console.log('ChatEngine chat created or retrived: ', chatEngineResponse.data);

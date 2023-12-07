@@ -14,9 +14,15 @@ export default class chatController {
                 },
                 {
                     headers: {
-                    'Project-ID': '30a0ab26-3bce-4bce-a5f6-523ba1ba2256',
-                    'User-Name': req.body.userEmail,
-                    'User-Secret': 'secret'
+                        'Project-ID': '30a0ab26-3bce-4bce-a5f6-523ba1ba2256',
+                        'User-Name': req.body.userEmail,
+                        'User-Secret': 'secret',
+                        "Content-Type": "application/json",
+                        Vary: "Accept, Origin",
+                        Allow: "GET, POST, PUT, HEAD, OPTIONS",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+                        "X-Cloud-Trace-Context": "356f99312aac3a16d462aed40bced7fa",        
                     },
                 }
             );
