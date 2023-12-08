@@ -26,7 +26,7 @@ export default class chatController {
                 'https://api.chatengine.io/chats/',
                 {
                     usernames: [req.body.adminEmail],
-                    title: req.body.userEmail,
+                    title: "Chat Wizard",
                     is_direct_chat: false
                 },
                 {
