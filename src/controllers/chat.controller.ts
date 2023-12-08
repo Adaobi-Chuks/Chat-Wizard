@@ -5,16 +5,16 @@ export default class chatController {
     async getChatDetails(req: Request, res: Response) {
         try {
             const chatEngineResponse = await axios.put(
-              'https://api.chatengine.io/users/',
-              {
-                username: req.body.userEmail,
-                secret: "secret",
-              },
-              {
-                headers: {
-                  'PRIVATE-KEY': '6a082680-ab6f-4722-84c0-e07120a9662d',
+                'https://api.chatengine.io/users/',
+                {
+                    username: req.body.userEmail,
+                    secret: "secret",
                 },
-              }
+                {
+                    headers: {
+                    'PRIVATE-KEY': '6a082680-ab6f-4722-84c0-e07120a9662d',
+                    },
+                }
             );
             console.log('ChatEngine user created: ', chatEngineResponse.data);
         } catch (err) {
