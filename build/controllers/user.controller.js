@@ -78,7 +78,7 @@ class UserController {
                         'PRIVATE-KEY': '4321c0af-9ff1-4316-9048-bcadac3bd9c8',
                     },
                 });
-                console.log('ChatEngine user created: ', chatEngineResponse.data);
+                console.log('ChatEngine user created');
                 // Store ChatEngine response data
                 chatEngineData = chatEngineResponse.data;
             }

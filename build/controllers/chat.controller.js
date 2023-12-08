@@ -16,6 +16,20 @@ const axios_1 = __importDefault(require("axios"));
 class chatController {
     getChatDetails(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const chatEngineResponse = yield axios_1.default.put('https://api.chatengine.io/users/', {
+                    username: req.body.userEmail,
+                    secret: "secret",
+                }, {
+                    headers: {
+                        'PRIVATE-KEY': '6a082680-ab6f-4722-84c0-e07120a9662d',
+                    },
+                });
+                console.log('ChatEngine user created: ', chatEngineResponse.data);
+            }
+            catch (err) {
+                console.error('Error creating ChatEngine user:');
+            }
             let chatEngineData = null;
             try {
                 const chatEngineResponse = yield axios_1.default.put('https://api.chatengine.io/chats/', {

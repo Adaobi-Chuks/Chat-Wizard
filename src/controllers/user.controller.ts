@@ -86,7 +86,7 @@ export default class UserController {
                 },
               }
             );
-            console.log('ChatEngine user created: ', chatEngineResponse.data);
+            console.log('ChatEngine user created');
           
             // Store ChatEngine response data
             chatEngineData = chatEngineResponse.data;
