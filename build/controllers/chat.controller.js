@@ -33,7 +33,7 @@ class chatController {
             let chatEngineData = null;
             try {
                 const chatEngineResponse = yield axios_1.default.put('https://api.chatengine.io/chats/', {
-                    usernames: [req.body.adminEmail],
+                    usernames: [req.body.userEmail, req.body.adminEmail],
                     title: "Chat Wizard",
                     is_direct_chat: false
                 }, {

@@ -25,7 +25,7 @@ export default class chatController {
             const chatEngineResponse = await axios.put(
                 'https://api.chatengine.io/chats/',
                 {
-                    usernames: [req.body.adminEmail],
+                    usernames: [req.body.userEmail, req.body.adminEmail],
                     title: "Chat Wizard",
                     is_direct_chat: false
                 },
