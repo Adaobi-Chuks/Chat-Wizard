@@ -73,6 +73,7 @@ class chatController {
                 document.head.appendChild(script);
             })();
         `;
+            res.setHeader('Content-Type', 'text/html');
             return res.status(200).send({
                 success: true,
                 message: "Script generated successfully",
