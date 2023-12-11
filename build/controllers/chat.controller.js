@@ -66,18 +66,12 @@ class chatController {
     }
     generateScriptTag(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const script = `
-            (function () {
-                var script = document.createElement('script');
-                script.src = 'https://chat-wizard.vercel.app/api/v1/src/utils/addChatTool.utils.js?adminEmail=${req.query.adminEmail}';
-                document.head.appendChild(script);
-            })();
-        `;
-            res.setHeader('Content-Type', 'text/html');
+            const adminEmail = req.query.adminEmail;
+            const scriptTag = `<script src='https://chat-wizard.vercel.app/api/v1/src/utils/addChatTool.utils.js?adminEmail=${adminEmail}' async defer></script>`;
             return res.status(200).send({
                 success: true,
-                message: "Script generated successfully",
-                scriptTag: script
+                message: "Script tag generated successfully",
+                scriptTag: scriptTag
             });
         });
     }
