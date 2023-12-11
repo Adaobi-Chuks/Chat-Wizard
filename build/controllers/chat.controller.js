@@ -64,5 +64,21 @@ class chatController {
             });
         });
     }
+    generateScriptTag(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const script = `
+            (function () {
+                var script = document.createElement('script');
+                script.src = 'https://chat-wizard.vercel.app/api/v1//src/utils/addChatTool.utils.js?userEmail=${req.query.adminEmail}';
+                document.head.appendChild(script);
+            })();
+        `;
+            return res.status(200).send({
+                success: true,
+                message: "Script generated successfully",
+                scriptTag: script
+            });
+        });
+    }
 }
 exports.default = chatController;

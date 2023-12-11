@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const chat_controller_1 = __importDefault(require("../controllers/chat.controller"));
 const router = (0, express_1.Router)();
-const { getChatDetails } = new chat_controller_1.default();
+const { getChatDetails, generateScriptTag } = new chat_controller_1.default();
 router.put("/", getChatDetails);
+router.get("/script-tag", generateScriptTag);
 exports.default = router;
