@@ -69,7 +69,7 @@ class chatController {
             const script = `
             (function () {
                 var script = document.createElement('script');
-                script.src = 'https://chat-wizard.vercel.app/api/v1//src/utils/addChatTool.utils.js?userEmail=${req.query.adminEmail}';
+                script.src = 'https://chat-wizard.vercel.app/api/v1/src/utils/addChatTool.utils.js?adminEmail=${req.query.adminEmail}';
                 document.head.appendChild(script);
             })();
         `;
