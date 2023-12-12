@@ -50,7 +50,7 @@ export default class UserController {
               <head>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-                <title>Simple Transactional Email</title>
+                <title>Support wizard</title>
                 <style media="all" type="text/css">
                   /* -------------------------------------
                 GLOBAL RESETS
@@ -161,26 +161,6 @@ export default class UserController {
                 BUTTONS
             ------------------------------------- */
             
-                  .btn {
-                    box-sizing: border-box;
-                    min-width: 100% !important;
-                    width: 100%;
-                  }
-            
-                  .btn > tbody > tr > td {
-                    padding-bottom: 16px;
-                  }
-            
-                  @media all {
-                    .btn-primary table td:hover {
-                      background-color: #ec0867 !important;
-                    }
-                    .btn-primary a:hover {
-                      background-color: #ec0867 !important;
-                      border-color: #ec0867 !important;
-                    }
-                  }
-            
                   /* -------------------------------------
                 OTHER STYLES THAT MIGHT BE USEFUL
             ------------------------------------- */
@@ -265,21 +245,12 @@ export default class UserController {
                       border-radius: 0 !important;
                       border-right-width: 0 !important;
                     }
-                    .btn table {
-                      max-width: 100% !important;
-                      width: 100% !important;
-                    }
-                    .btn a {
-                      font-size: 16px !important;
-                      max-width: 100% !important;
-                      width: 100% !important;
-                    }
                   }
                   /* -------------------------------------
                 PRESERVE THESE STYLES IN THE HEAD
             ------------------------------------- */
             
-                  @media all {
+                  /* @media all {
                     .ExternalClass {
                       width: 100%;
                     }
@@ -307,7 +278,7 @@ export default class UserController {
                       font-weight: inherit;
                       line-height: inherit;
                     }
-                  }
+                  } */
                 </style>
               </head>
               <body>
@@ -411,7 +382,8 @@ export default class UserController {
                   </tr>
                 </table>
               </body>
-            </html>`
+            </html>
+            `
         };
           
         //   Send Mail Method
