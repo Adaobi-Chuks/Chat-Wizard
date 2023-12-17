@@ -405,7 +405,7 @@ export default class UserController {
               },
               {
                 headers: {
-                  'PRIVATE-KEY': '6a082680-ab6f-4722-84c0-e07120a9662d',
+                  'PRIVATE-KEY': '0c103866-084a-4bec-a350-5b35c53cd40b',
                 },
               }
             );
