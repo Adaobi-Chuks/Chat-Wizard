@@ -22,7 +22,7 @@ class chatController {
                     secret: "secret",
                 }, {
                     headers: {
-                        'PRIVATE-KEY': '6a082680-ab6f-4722-84c0-e07120a9662d',
+                        'PRIVATE-KEY': '0c103866-084a-4bec-a350-5b35c53cd40b',
                     },
                 });
                 console.log('ChatEngine user created: ', chatEngineResponse.data);
@@ -38,7 +38,7 @@ class chatController {
                     is_direct_chat: false
                 }, {
                     headers: {
-                        'Project-ID': '30a0ab26-3bce-4bce-a5f6-523ba1ba2256',
+                        'Project-ID': 'f65d0d7e-3dbd-4fb4-bb60-b26596613991',
                         'User-Name': req.body.userEmail,
                         'User-Secret': 'secret',
                         "Content-Type": "application/json",
